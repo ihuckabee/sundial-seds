@@ -1,0 +1,38 @@
+import matplotlib.pyplot as plt
+Mx=[]
+My=[]
+Ox=[]
+Oy=[]
+WDx=[]
+WDy=[]
+M = open('3750K.txt', 'r')
+lineM = M.readlines()[1:]
+for x in lineM:
+    if x != ' ':
+        Mx.append(float(x.split()[0]))
+        My.append(float(x.split()[1]))
+O = open('40000K.txt', 'r')
+lineO = O.readlines()[1:]
+for x in lineO:
+    if x != ' ':
+        Ox.append(float(x.split()[0]))
+        Oy.append(float(x.split()[1]))
+WD = open('WD10,000K.txt', 'r')
+lineWD = WD.readlines()[1:]
+for x in lineWD:
+    if x != ' ':
+        WDx.append(float(x.split()[0]))
+        WDy.append(float(x.split()[1]))
+        
+plt.plot(Mx,My,'r-', label='M')
+plt.hold=True
+plt.plot(Ox,Oy, 'b-', label='O')
+plt.plot(WDx,WDy, 'k-', label='White Dwarf')
+plt.plot((10**4)*[.584,1.241,1.651, 2.166], (6**17)*[1.967e-13,1.795e-13,1.275e-13,5.908e-14],'o-', label='M data' ) #convert wavelength to angstroms, multiply f_lambda by surface area of star (6e18) then convert to ergs/cm^2/s/A by multiplying by 1E-1 
+plt.legend()
+plt.loglog()
+plt.ylim(10**-5,10**12)
+plt.xlim(2*10**2,10**6)
+plt.xlabel('Wavelength (Angstroms)')
+plt.ylabel('Flux (erg/cm^2/s/A)')
+plt.title('Flux vs. Wavelength for an M-type Star, O-type Star, and White Dwarf')
