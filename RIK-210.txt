@@ -1,0 +1,25 @@
+magnitudes
+G 13.4470 
+J 10.605 
+H 9.851 
+K 9.652
+wavelengths 
+G- .584, 
+J- 1.241 microns
+H- 1.651
+K- 2.166
+
+G (using Sloan g) 
+F_nu = 0.015178 Jy
+F_lambda = 1.967e-13 W/m^2/micron
+
+J
+  F_lambda = 1.795e-13 W/m^2/micron
+  F_nu = 0.091304 Jy
+H
+F_nu = 0.117463 Jy
+F_lambda = 1.275e-13 W/m^2/micron
+
+K
+F_nu = .091861 Jy
+F_lambda = 5.908e-14 W/m^2/micron
