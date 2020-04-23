@@ -1,4 +1,7 @@
+import sys  
+!{sys.executable} -m pip install --user matplotlib
 import matplotlib.pyplot as plt
+import numpy as np
 Mx=[]
 My=[]
 Ox=[]
@@ -23,12 +26,15 @@ for x in lineWD:
     if x != ' ':
         WDx.append(float(x.split()[0]))
         WDy.append(float(x.split()[1]))
+Mdatax=np.array([5840,12410,16510, 21660])
+Mdatay=6*np.array([1.967e4,1.795e4,1.275e4,5.908e3])     
+
         
 plt.plot(Mx,My,'r-', label='M')
 plt.hold=True
 plt.plot(Ox,Oy, 'b-', label='O')
 plt.plot(WDx,WDy, 'k-', label='White Dwarf')
-plt.plot((10**4)*[.584,1.241,1.651, 2.166], (6**17)*[1.967e-13,1.795e-13,1.275e-13,5.908e-14],'o-', label='M data' ) #convert wavelength to angstroms, multiply f_lambda by surface area of star (6e18) then convert to ergs/cm^2/s/A by multiplying by 1E-1 
+plt.plot(Mdatax,Mdatay,'o-', label='M data' ) #convert wavelength to angstroms, multiply f_lambda by surface area of star (6e18) then convert to ergs/cm^2/s/A by multiplying by 1E-1 
 plt.legend()
 plt.loglog()
 plt.ylim(10**-5,10**12)
